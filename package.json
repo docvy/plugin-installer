@@ -25,10 +25,13 @@
     "docvy-plugins": "./bin/docvy-plugins"
   },
   "dependencies": {
+    "docvy-utils": "GochoMugo/docvy-utils#develop",
     "commander": "latest",
     "custom-logger": "GochoMugo/custom-logger",
     "debug": "latest",
     "lodash": "latest",
+    "ncp": "latest",
+    "rimraf": "latest",
     "shelljs": "latest"
   },
   "devDependencies": {
