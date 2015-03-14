@@ -15,6 +15,7 @@ var should = require("should");
 
 
 // own modules
+var errors = require("../lib/errors");
 var installer = require("../lib/installer");
 
 
@@ -81,9 +82,10 @@ describe("installer.npmInstall", function() {
     });
   });
 
-  it("passes an error object, on erroring", function(done) {
+  it("passes NpmInstallError if package is not found",
+  function(done) {
     installer.npmInstall(nonExistingPlugin, function(err) {
-      should(err).be.ok.and.instanceOf(Error);
+      should(err).be.ok.and.instanceOf(errors.NpmInstallError);
       done();
     });
   });
