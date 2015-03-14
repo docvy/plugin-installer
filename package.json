@@ -41,6 +41,7 @@
     "grunt-mocha-test": "latest",
     "istanbul": "latest",
     "mocha": "latest",
+    "shelljs": "latest",
     "should": "latest"
   }
 }
