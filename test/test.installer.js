@@ -19,8 +19,19 @@ var installer = require("../lib/installer");
 
 
 // module variables
-var testPackage = "GochoMugo/docvy-plugin-installer#develop";
+var testPkgName = "docvy-utils";
+var testPackage = "GochoMugo/" + testPkgName + "#develop";
 var nonExistingPlugin = "GochoMugo/non-existing-plugin";
+var npmInstallTimeout = 0;
+
+
+// clean-up
+after(function(done) {
+  installer.uninstall(testPackage, function(err) {
+    should(err).not.be.ok;
+    done();
+  });
+});
 
 
 describe("installer module", function() { });
@@ -36,9 +47,16 @@ describe("installer.install", function() {
 
 
 describe("installer.npmInstall", function() {
+  this.timeout(npmInstallTimeout);
 
-  it.only("allows a string", function(done) {
-    this.timeout(200000);
+  beforeEach(function(done) {
+    installer.uninstall(testPackage, function(err) {
+      should(err).not.be.ok;
+      done();
+    });
+  });
+
+  it("allows a string", function(done) {
     installer.npmInstall(testPackage, function(err) {
       should(err).not.be.ok;
       done();
@@ -57,7 +75,7 @@ describe("installer.npmInstall", function() {
       should(err).not.be.ok;
       installer.listPlugins(function(err, plugins) {
         should(err).not.be.ok;
-        should(plugins).containEql(testPackage);
+        should(plugins).containEql(testPkgName);
         done();
       });
     });
@@ -68,14 +86,6 @@ describe("installer.npmInstall", function() {
       should(err).be.ok.and.instanceOf(Error);
       done();
     });
-  });
-
-  it("error object has a .causes prop for cascading errors",
-  function(done) {
-    installer.npmInstall(nonExistingPlugin, function(err) {
-        should(err).be.ok.and.have.property("causes");
-        done();
-      });
   });
 
 });
@@ -91,12 +101,11 @@ describe("installer.list", function() {
     });
   });
 
-  it("error object has a .causes prop for cascading errors");
-
 });
 
 
 describe("installer.uninstall", function() {
+  this.timeout(npmInstallTimeout);
 
   beforeEach(function(done) {
     installer.npmInstall(testPackage, function(err) {
@@ -130,17 +139,9 @@ describe("installer.uninstall", function() {
     });
   });
 
-  it("passes an error object, on erroring", function(done) {
+  it("ignores error if plugin is not installed", function(done) {
     installer.uninstall(nonExistingPlugin, function(err) {
-      should(err).be.ok.and.instanceOf(Error);
-      done();
-    });
-  });
-
-  it("error object has a .causes prop for cascading errors",
-  function(done) {
-    installer.uninstall(nonExistingPlugin, function(err) {
-      should(err).be.ok.and.has.property("causes");
+      should(err).not.be.ok;
       done();
     });
   });

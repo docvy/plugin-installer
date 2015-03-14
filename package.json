@@ -31,8 +31,8 @@
     "debug": "latest",
     "lodash": "latest",
     "ncp": "latest",
-    "rimraf": "latest",
-    "shelljs": "latest"
+    "npm": "latest",
+    "rimraf": "latest"
   },
   "devDependencies": {
     "grunt": "latest",
