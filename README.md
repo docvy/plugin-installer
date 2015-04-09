@@ -83,7 +83,7 @@ Lists all the installed plugins
 
 Describes a plugin.
 
-** NOT COMPLETE**
+**NOT COMPLETE**
 
 
 ## license:
