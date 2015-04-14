@@ -11,6 +11,7 @@ var fs = require("fs");
 
 
 // npm-installed modules
+var Jayschema = require("jayschema");
 var should = require("should");
 
 
@@ -24,6 +25,15 @@ var testPkgName = "docvy-utils";
 var testPackage = "GochoMugo/" + testPkgName + "#develop";
 var nonExistingPlugin = "GochoMugo/non-existing-plugin";
 var npmInstallTimeout = 0;
+var schemaFetchTimeout = 0;
+var validator = new Jayschema(Jayschema.loaders.http);
+var pluginListSchema = {
+  "$schema": "http://json-schema.org/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugin-descriptor.json#"
+  }
+};
 
 
 // clean-up
@@ -94,12 +104,24 @@ describe("installer.npmInstall", function() {
 
 
 describe("installer.list", function() {
+  this.timeout(schemaFetchTimeout);
 
   it("passes an array of all installed plugins", function(done) {
     installer.listPlugins(function(err, plugins) {
       should(err).not.be.ok;
       should(plugins).be.an.Array;
       done();
+    });
+  });
+
+  it("passes an array of plugin descriptors", function(done) {
+    installer.listPlugins(function(err, plugins) {
+      should(err).not.be.ok;
+      validator.validate(plugins, pluginListSchema,
+      function(errs) {
+        should(errs).not.be.ok;
+        done();
+      });
     });
   });
 

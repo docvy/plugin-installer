@@ -83,7 +83,19 @@ Lists all the installed plugins
 
 Describes a plugin.
 
-**NOT COMPLETE**
+Example [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugin-descriptor.json)]:
+```json
+{
+  "name": "dp-markdown",
+  "version": "1.0.0",
+  "author": {
+    "name": "GochoMugo",
+    "email": "mugo@forfuture.co.ke"
+  },
+  "icon": "icon128.png",
+  "homepage": "https://github.com/GochoMugo/dp-markdown"
+}
+```
 
 
 ## license:
