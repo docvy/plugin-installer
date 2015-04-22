@@ -21,9 +21,9 @@ var installer = require("../lib/installer");
 
 
 // module variables
-var testPkgName = "docvy-utils";
-var testPackage = "GochoMugo/" + testPkgName + "#develop";
-var nonExistingPlugin = "GochoMugo/non-existing-plugin";
+var testPkgName = "utils";
+var testPackage = "docvy/" + testPkgName + "#develop";
+var nonExistingPlugin = "docvy/non-existing-plugin";
 var npmInstallTimeout = 0;
 var schemaFetchTimeout = 0;
 var validator = new Jayschema(Jayschema.loaders.http);
@@ -31,7 +31,7 @@ var pluginListSchema = {
   "$schema": "http://json-schema.org/schema#",
   "type": "array",
   "items": {
-    "$ref": "https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugin-descriptor.json#"
+    "$ref": "https://raw.githubusercontent.com/docvy/server/develop/schemas/plugin-descriptor.json#"
   }
 };
 

@@ -1,7 +1,7 @@
 
 # docvy-plugin-installer
 
-[![Build Status](https://travis-ci.org/GochoMugo/docvy-plugin-installer.svg?branch=develop)](https://travis-ci.org/GochoMugo/docvy-plugin-installer) [![Coverage Status](https://coveralls.io/repos/GochoMugo/docvy-plugin-installer/badge.svg?branch=develop)](https://coveralls.io/r/GochoMugo/docvy-plugin-installer?branch=develop)
+[![Build Status](https://travis-ci.org/docvy/plugin-installer.svg?branch=develop)](https://travis-ci.org/docvy/plugin-installer) [![Coverage Status](https://coveralls.io/repos/docvy/plugin-installer/badge.svg?branch=develop)](https://coveralls.io/r/docvy/plugin-installer?branch=develop)
 
 > Installs plugins for the Docvy Application
 
@@ -11,7 +11,7 @@
 Using [npm][npm] from [github][repo] (**bleeding edge**):
 
 ```bash
-⇒ npm install GochoMugo/docvy-plugin-installer#develop
+⇒ npm install docvy/plugin-installer#develop
 ```
 
 
@@ -83,7 +83,7 @@ Lists all the installed plugins
 
 Describes a plugin.
 
-Example [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-server/develop/schemas/plugin-descriptor.json)]:
+Example [[Schema Reference](https://raw.githubusercontent.com/docvy/server/develop/schemas/plugin-descriptor.json)]:
 ```json
 {
   "name": "dp-markdown",
@@ -93,7 +93,7 @@ Example [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-se
     "email": "mugo@forfuture.co.ke"
   },
   "icon": "icon128.png",
-  "homepage": "https://github.com/GochoMugo/dp-markdown"
+  "homepage": "https://github.com/docvy/dp-markdown"
 }
 ```
 
@@ -102,8 +102,9 @@ Example [[Schema Reference](https://raw.githubusercontent.com/GochoMugo/docvy-se
 
 __The MIT License (MIT)__
 
+Copyright (c) 2015 Forfuture LLC <we@forfuture.co.ke>
 Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 
 [npm]:https://npmjs.com
-[repo]:https://github.com/GochoMugo/docvy-plugin-installer
+[repo]:https://github.com/docvy/plugin-installer
 
