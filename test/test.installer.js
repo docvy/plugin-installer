@@ -13,6 +13,7 @@ var fs = require("fs");
 // npm-installed modules
 var Jayschema = require("jayschema");
 var should = require("should");
+var utils = require("docvy-utils");
 
 
 // own modules
@@ -96,6 +97,34 @@ describe("installer.npmInstall", function() {
   function(done) {
     installer.npmInstall(nonExistingPlugin, function(err) {
       should(err).be.ok.and.instanceOf(errors.NpmInstallError);
+      done();
+    });
+  });
+
+});
+
+
+describe("installer.dirInstall", function() {
+  var testPluginPath = __dirname + "/mock/testPluginInstaller";
+  var destPath = utils.getPath("app.plugins") + "/testPluginInstaller";
+
+  before(function() {
+    try {
+      fs.rmdirSync(destPath);
+    } catch(err) { }
+  });
+
+  it("installs from a directory", function(done) {
+    installer.dirInstall(testPluginPath, function(err) {
+      should(err).not.be.ok;
+      should(fs.existsSync(destPath)).be.ok;
+      done();
+    });
+  });
+
+  it("errors if directory is missing", function(done) {
+    installer.dirInstall(__dirname + "NotExisting", function(err) {
+      should(err).be.an.instanceOf(errors.DirectoryNotExistingError);
       done();
     });
   });

@@ -35,6 +35,8 @@ Help information for terminal usage:
     -V, --version             output the version number
     -l, --list                list installed plugins
     -i, --install <plugin>    install <plugin>
+    --npm-install <plugin>    install <plugin> from NPM
+    --dir-install <dirpath>   install plugin from <dirpath>
     -u, --uninstall <plugin>  uninstall <plugin>
 
 ```
@@ -48,13 +50,26 @@ var installer = require("docvy-installer");
 
 #### installer.install(names [, callback])
 
-Installs new plugins into the Plugins directory. **Plugin MUST be available through [npm][npm].**
+The installer defaults to installing from NPM. See [installer.npmInstall](#npmInstall) for more information.
+
+
+<a name="npmInstall"></a>
+#### installer.npmInstall(names [, callback])
+
+Installs new plugins from NPM. **Plugin MUST be available through [npm][npm].**
 
 * `names` (Array[String]): array of names of the plugins to install
 * `callback` (Function):
   * signature: `callback(err)`
-  * On success, `err` will be null
-  * On error, `err` will be an `Error` object
+
+
+#### installer.dirInstall(dirpath [, callback])
+
+Installs plugin from directory at `dirpath`.
+
+* `dirpath` (String): path to the directory holding the plugins content
+* `callback` (Function):
+  * signature: `callback(err)`
 
 
 #### installer.uninstall(names [, callback])
