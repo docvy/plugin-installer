@@ -154,6 +154,17 @@ describe("installer.list", function() {
     });
   });
 
+  it("ignores plugins whose info could not be loaded", function(done) {
+    var pluginPath = __dirname + "/mock/testPluginCanNotLoad";
+    installer.dirInstall(pluginPath, function(err) {
+      should(err).not.be.ok;
+      installer.listPlugins(function(err) {
+        should(err).not.be.ok;
+        done();
+      });
+    });
+  });
+
 });
 
 
