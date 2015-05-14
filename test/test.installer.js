@@ -22,8 +22,8 @@ var installer = require("../lib/installer");
 
 
 // module variables
-var testPkgName = "utils";
-var testPackage = "docvy/" + testPkgName + "#develop";
+var testPkgName = "docvy-utils";
+var testPackage = "docvy/utils#develop";
 var nonExistingPlugin = "docvy/non-existing-plugin";
 var npmInstallTimeout = 0;
 var schemaFetchTimeout = 0;
@@ -49,6 +49,9 @@ after(function(done) {
 describe("installer module", function() { });
 
 
+/**
+* installer.install *****************************
+*/
 describe("installer.install", function() {
 
   it("is same as installer.npmInstall", function() {
@@ -58,6 +61,9 @@ describe("installer.install", function() {
 });
 
 
+/**
+* installer.npmInstall **************************
+*/
 describe("installer.npmInstall", function() {
   this.timeout(npmInstallTimeout);
 
@@ -87,7 +93,13 @@ describe("installer.npmInstall", function() {
       should(err).not.be.ok;
       installer.listPlugins(function(err, plugins) {
         should(err).not.be.ok;
-        should(plugins).containEql(testPkgName);
+        var found = false;
+        for (var index in plugins) {
+          if (plugins[index].name === testPkgName) {
+            found = true;
+          }
+        }
+        should(found).be.ok;
         done();
       });
     });
@@ -104,6 +116,9 @@ describe("installer.npmInstall", function() {
 });
 
 
+/**
+* installer.dirInstall **************************
+*/
 describe("installer.dirInstall", function() {
   var testPluginPath = __dirname + "/mock/testPluginInstaller";
   var destPath = utils.getPath("app.plugins") + "/testPluginInstaller";
@@ -132,6 +147,9 @@ describe("installer.dirInstall", function() {
 });
 
 
+/**
+* installer.list ********************************
+*/
 describe("installer.list", function() {
   this.timeout(schemaFetchTimeout);
 
@@ -168,6 +186,9 @@ describe("installer.list", function() {
 });
 
 
+/**
+* installer.uninstall ***************************
+*/
 describe("installer.uninstall", function() {
   this.timeout(npmInstallTimeout);
 
@@ -178,7 +199,7 @@ describe("installer.uninstall", function() {
     });
   });
 
-  it("allows a string", function(done) {
+  it.only("allows a string", function(done) {
     installer.uninstall(testPackage, function(err) {
       should(err).not.be.ok;
       done();
@@ -211,3 +232,4 @@ describe("installer.uninstall", function() {
   });
 
 });
+
