@@ -199,7 +199,7 @@ describe("installer.uninstall", function() {
     });
   });
 
-  it.only("allows a string", function(done) {
+  it("allows a string", function(done) {
     installer.uninstall(testPackage, function(err) {
       should(err).not.be.ok;
       done();
