@@ -23,19 +23,19 @@ This component may be used programmatically, as in the docvy application, or fro
 Help information for terminal usage:
 
 ```bash
-⇒ docvy-plugins -h
 
-  Usage: docvy-plugins [options]
+⇒ docvy-plugins help
+ docvy-plugins: The Docvy Plugin Installer
 
-  Options:
+     dir-install <dirpath>    install plugin from <dirpath>
+     help                     show this help information
+     install <plugin>         install <plugin>
+     list                     list installed plugins
+     npm-install <plugin>     install <plugin> from NPM
+     uninstall <plugin>       uninstall <plugin>
+     version                  show version information
 
-    -h, --help                output usage information
-    -V, --version             output the version number
-    -l, --list                list installed plugins
-    -i, --install <plugin>    install <plugin>
-    --npm-install <plugin>    install <plugin> from NPM
-    --dir-install <dirpath>   install plugin from <dirpath>
-    -u, --uninstall <plugin>  uninstall <plugin>
+ See https://github.com/docvy/plugin-installer for feature-requests and bug-reports
 
 ```
 
