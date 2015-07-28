@@ -29,7 +29,7 @@ var installer = require("../lib/installer");
 var testPkgName = "docvy-utils";
 var testPackage = "docvy/utils#develop";
 var nonExistingPlugin = "docvy/non-existing-plugin";
-var npmInstallTimeout = 0;
+var npmInstallTimeout = 1000 * 60; // 1 minute
 var schemaFetchTimeout = 0;
 var validator = new Jayschema(Jayschema.loaders.http);
 var pluginListSchema = {
@@ -54,8 +54,8 @@ describe("installer module", function() { });
 
 
 /**
-* installer.install *****************************
-*/
+ * installer.install *****************************
+ */
 describe("installer.install", function() {
 
   it("is same as installer.npmInstall", function() {
@@ -66,9 +66,9 @@ describe("installer.install", function() {
 
 
 /**
-* installer.npmInstall **************************
-*/
-describe.skip("installer.npmInstall", function() {
+ * installer.npmInstall **************************
+ */
+describe("installer.npmInstall", function() {
   this.timeout(npmInstallTimeout);
 
   beforeEach(function(done) {
@@ -121,8 +121,8 @@ describe.skip("installer.npmInstall", function() {
 
 
 /**
-* installer.dirInstall **************************
-*/
+ * installer.dirInstall **************************
+ */
 describe("installer.dirInstall", function() {
   var testPluginPath = path.join(__dirname, "/mock/testPluginInstaller");
   var destPath = utils.getPath("app.plugins") + "/testPluginInstaller";
@@ -193,9 +193,9 @@ describe("installer.list", function() {
 
 
 /**
-* installer.uninstall ***************************
-*/
-describe.skip("installer.uninstall", function() {
+ * installer.uninstall ***************************
+ */
+describe("installer.uninstall", function() {
   this.timeout(npmInstallTimeout);
 
   beforeEach(function(done) {
