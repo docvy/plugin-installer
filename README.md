@@ -1,17 +1,15 @@
 
 # docvy-plugin-installer
 
-[![Build Status](https://travis-ci.org/docvy/plugin-installer.svg?branch=develop)](https://travis-ci.org/docvy/plugin-installer) [![Coverage Status](https://coveralls.io/repos/docvy/plugin-installer/badge.svg?branch=develop)](https://coveralls.io/r/docvy/plugin-installer?branch=develop)
-
 > Installs plugins for the Docvy Application
+
+[![node](https://img.shields.io/node/v/docvy-plugin-installer.svg?style=flat-square)](https://www.npmjs.com/package/docvy-plugin-installer) [![npm](https://img.shields.io/npm/v/docvy-plugin-installer.svg?style=flat-square)](https://www.npmjs.com/package/docvy-plugin-installer) [![Travis](https://img.shields.io/travis/docvy/plugin-installer.svg?style=flat-square)](https://travis-ci.org/docvy/plugin-installer) [![Gemnasium](https://img.shields.io/gemnasium/docvy/plugin-installer.svg?style=flat-square)](https://gemnasium.com/docvy/plugin-installer) [![Coveralls](https://img.shields.io/coveralls/docvy/plugin-installer.svg?style=flat-square)](https://coveralls.io/github/docvy/plugin-installer?branch=master)
 
 
 ## installation:
 
-Using [npm][npm] from [github][repo] (**bleeding edge**):
-
 ```bash
-⇒ npm install docvy/plugin-installer#develop
+⇒ npm install docvy-plugin-installer
 ```
 
 
@@ -122,4 +120,3 @@ Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 
 [npm]:https://npmjs.com
 [repo]:https://github.com/docvy/plugin-installer
-

@@ -6,21 +6,26 @@
 */
 
 
+"use strict";
+
+
+// built-in modules
+var path = require("path");
+
+
 // npm-installed modules
 var shelljs = require("shelljs");
 var should = require("should");
 
 
 // module variables
-var script = __dirname + "/../bin/docvy-plugins ";
+var script = path.join(__dirname, "/../bin/docvy-plugins ");
 
 
-describe("-V, --version", function() {
-
+describe("version", function() {
   it("retrieves version info from package.json", function() {
-    var cmd = shelljs.exec(script + "-V", { silent: true });
+    var cmd = shelljs.exec(script + "version", { silent: true });
     cmd.code.should.eql(0);
-    cmd.output.should.containEql(require("../package.json").version);
+    should(cmd.output).containEql(require("../package.json").version);
   });
-
 });

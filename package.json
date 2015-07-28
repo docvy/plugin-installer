@@ -1,48 +1,58 @@
 {
-  "name": "docvy-plugin-installer",
-  "version": "0.0.0",
-  "description": "The Docvy Plugin Installer",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/docvy/plugin-installer.git"
-  },
-  "keywords": [
-    "docvy",
-    "plugin",
-    "installer"
-  ],
-  "author": "GochoMugo <mugo@forfuture.co.ke>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/docvy/plugin-installer/issues"
-  },
-  "homepage": "https://github.com/docvy/plugin-installer",
-  "main": "lib/installer.js",
-  "bin": {
-    "docvy-plugins": "./bin/docvy-plugins"
-  },
-  "dependencies": {
-    "docvy-utils": "docvy/utils#develop",
-    "commander": "latest",
-    "custom-logger": "GochoMugo/custom-logger",
-    "debug": "latest",
-    "lodash": "latest",
-    "ncp": "latest",
-    "npm": "latest",
-    "rimraf": "latest"
-  },
-  "devDependencies": {
-    "grunt": "latest",
-    "grunt-contrib-clean": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-mocha-test": "latest",
-    "istanbul": "latest",
-    "jayschema": "latest",
-    "mocha": "latest",
-    "shelljs": "latest",
-    "should": "latest"
-  }
+    "name": "docvy-plugin-installer",
+    "version": "0.0.0",
+    "description": "The Docvy Plugin Installer",
+    "scripts": {
+        "test": "grunt test",
+        "test-coverage": "istanbul cover _mocha --report lcovonly -- -R spec test/*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/docvy/plugin-installer.git"
+    },
+    "keywords": [
+        "docvy",
+        "plugin",
+        "installer"
+    ],
+    "author": {
+        "name": "GochoMugo",
+        "email": "mugo@forfuture.co.ke",
+        "url": "https://gochomugo.github.io/"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/docvy/plugin-installer/issues"
+    },
+    "homepage": "https://github.com/docvy/plugin-installer",
+    "main": "lib/installer.js",
+    "bin": {
+        "docvy-plugins": "bin/docvy-plugins"
+    },
+    "dependencies": {
+        "docvy-utils": "^0.0.0",
+        "cli-output": "^0.0.0",
+        "debug": "^2.2.0",
+        "lodash": "^3.10.0",
+        "ncp": "^2.0.0",
+        "npm": "^2.13.2",
+        "rimraf": "^2.4.2",
+        "simple-argparse": "^0.1.1"
+    },
+    "devDependencies": {
+        "coveralls": "^2.11.3",
+        "grunt": "^0.4.5",
+        "grunt-cli": "^0.1.13",
+        "grunt-eslint": "^14.0.0",
+        "grunt-mocha-test": "^0.12.7",
+        "istanbul": "^0.3.17",
+        "jayschema": "^0.3.1",
+        "load-grunt-tasks": "^3.2.0",
+        "mocha-lcov-reporter": "^0.0.2",
+        "shelljs": "^0.5.1",
+        "should": "^7.0.1"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    }
 }
