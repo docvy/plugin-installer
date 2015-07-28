@@ -27,7 +27,7 @@ var installer = require("../lib/installer");
 
 // module variables
 var testPkgName = "docvy-utils";
-var testPackage = "docvy/utils#develop";
+var testPackage = "docvy-utils";
 var nonExistingPlugin = "docvy/non-existing-plugin";
 var npmInstallTimeout = 1000 * 60; // 1 minute
 var schemaFetchTimeout = 0;
